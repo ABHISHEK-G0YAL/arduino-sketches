@@ -108,7 +108,6 @@ void setup()
 //  pinMode(Vin,OUTPUT);
 }
 
-
 void loop() 
 { 
   //move_stop();
@@ -119,10 +118,10 @@ void loop()
   dr = dist_r();
   if(dr<x && dm >x)
   {
-  move_forward();
-  Serial.println("moving fwd");
-  
-  } Serial.println(dm);
+    move_forward();
+    Serial.println("moving fwd");
+  }
+  Serial.println(dm);
   Serial.println(dr);
 //delay(500);  
   if(dm<=x)   //LEFT Turn at corner
@@ -157,4 +156,3 @@ void loop()
       dr = dist_r();
     } 
 }
-

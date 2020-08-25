@@ -5,26 +5,24 @@
 #define SS_PIN 10
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 
-void setup()
-{
-SPI.begin();
-mfrc522.PCD_Init();
+void setup() {
+  SPI.begin();
+  mfrc522.PCD_Init();
 }
 void loop() {
-RfidScan();
+  RfidScan();
 }
 void dump_byte_array(byte *buffer, byte bufferSize) {
-for (byte i=0; i < bufferSize; i++) {
-Serial.print(buffer[i] < 0x10 ? "0":" ");
-Serial.print(buffer[i], HEX);
-}
+  for (byte i=0; i < bufferSize; i++) {
+    Serial.print(buffer[i] < 0x10 ? "0":" ");
+    Serial.print(buffer[i], HEX);
+  }
 }
 
-void RfidScan()
-{
+void RfidScan() {
   if(!mfrc522.PICC_IsNewCardPresent())
-  return;
+    return;
   if(!mfrc522.PICC_ReadCardSerial())
-  return;
+    return;
   dump_byte_array(mfrc522.uid.uidByte, mfrc522.uid.size);
- }
+}

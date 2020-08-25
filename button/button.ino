@@ -1,4 +1,3 @@
-
 void setup() {
   pinMode(10, OUTPUT);
   pinMode(5, INPUT);
